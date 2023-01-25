@@ -1,7 +1,7 @@
 name: Testing
 on: push 
 
-job:
+jobs:
    testing_airlines:
    runs-on: ubuntu-latest
    steps: 
