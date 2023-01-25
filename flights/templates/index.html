@@ -1,0 +1,12 @@
+{% extends "layout.html" %} 
+{% block title %} 
+<title>Index</title>
+{% endblock %} 
+{% block body %} 
+<h1>Flights</h1>
+<ul>
+{% for f in flights_all %} 
+ <li><a href="{% url 'flights:flight_details' f.id %}">{{f}}</a></li>
+{% endfor %}
+</ul>
+{% endblock %}

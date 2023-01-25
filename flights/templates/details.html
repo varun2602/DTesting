@@ -1,0 +1,32 @@
+
+{% extends 'layout.html' %} 
+{% block title %}
+<title>Details</title> 
+{% endblock %} 
+{% block body %} 
+<h1>Flight Details</h1>
+Departure: {{flight_specific.origin}} <br>
+Destination: {{flight_specific.destination}} <br>
+Duration: {{flight_specific.destination}}
+
+<h1>Passengers</h1>
+<ul>
+    {% for p in passengers %} 
+        <li>{{p}}</li>
+    {% empty %} 
+        <h3>No Passengers</h3>
+    {% endfor %}
+</ul>
+<br><br>
+<h1>Non Passengers</h1>
+
+<form action="{% url 'flights:register' flight_specific.id %}" method = "POST">
+    {% csrf_token %}
+    <select name="non_p" id="">
+        {% for n in non_passengers %} 
+            <option value="{{n.id}}">{{n}}</option>
+        {% endfor %}
+    </select>
+    <input type="submit">
+</form>
+{% endblock %}
